@@ -17,7 +17,7 @@
             src="gsoc_batch.png"
             alt="GSoC badge"
           />
-          <div class="gsoc-wordmark">Google Summer of Code</div>
+          <div class="gsoc-wordmark">Google Summer of Code 2025</div>
         </div>
         <div class="logos logos--single">
           <img
@@ -68,10 +68,12 @@
       <section id="achievements" class="section">
         <h2>Achievements</h2>
 
-        <h3>1. Python Wrapper Integration (<a href="SU2-Installer.md">Docs</a>)</h3>
+        <h3>1. Python Wrapper Integration (<a href="Python-Wrapper.md">Docs</a>)</h3>
         <ul>
-          <li>Integrated SU2’s <code>pysu2</code> bindings directly into SU2GUI.</li>
-          <li>Enabled exporting GUI setups as Python scripts (<code>run_su2.py</code>) to support serial/MPI execution, dynamic wall temperature expressions, and reproducibility.</li>
+          <li>Integrated SU2’s pysu2 bindings directly into SU2GUI.</li>
+          <li>Enabled exporting GUI setups as Python scripts (<code>run_su2.py</code>) to support serial or MPI execution.</li>
+          <li>Added support for a user-defined wall temperature boundary condition in the Python wrapper, allowing custom temperature profiles via mathematical expressions over (x, y, z); e.g., <code>560.0 - 260.0*sin(x*pi/4)</code>.</li>
+          <li>Reproducibility across environments.</li>
           <li>GUI users can now generate and run wrappers with a single click.</li>
         </ul>
         
@@ -107,7 +109,7 @@
         <h3>4. Other Enhancements</h3>
         <ul>
           <li>Improved GUI error handling &amp; backward compatibility.</li>
-          <li>Added visualization support while running wrapper-based simulations.</li>
+          <li>Implemented both GUI and command-line interfaces for the installer.</li>
           <li>Wrote user-facing documentation, troubleshooting guides, and code comments for maintainability.</li>
         </ul>
       </section>
@@ -136,11 +138,11 @@
       <section id="future-work" class="section">
         <h2>Future Work</h2>
         <ul>
-          <li>Add support for <strong>time-varying boundary conditions</strong> in wrappers.</li>
+          <!-- <li>Add support for <strong>time-varying boundary conditions</strong> in wrappers.</li> -->
           <li>Expand cross-parameter validation logic to cover more solver types.</li>
           <li>Extend GUI scripting tab to allow custom Python scripts with CLI args.</li>
           <li>Improve visualization (multi-zone, 3D support).</li>
-          <li>Add installer support for HPC modules and conda environments.</li>
+          <li>Add installer support for HPC modules and conda environments within SU2GUI.</li>
         </ul>
       </section>
 

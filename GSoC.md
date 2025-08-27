@@ -38,14 +38,19 @@ These improvements make SU2GUI a more approachable, dependable, and productive i
 
 ---
 
-###  1. Python Wrapper Integration ([Docs](SU2-Installer.md))
+###  1. Python Wrapper Integration ([Docs](Python-Wrapper.md))
 
-- Integrated SU2’s `pysu2` bindings directly into SU2GUI.
-- Enabled exporting GUI setups as Python scripts (`run_su2.py`) to support:
-  - serial or MPI execution,
-  - dynamic wall temperature expressions (based on vertex coordinates),
-  - and reproducibility across environments.
-- GUI users can now generate and run wrappers with a single click.
+
+Integrated SU2’s pysu2 bindings directly into SU2GUI.
+
+Enabled exporting GUI setups as Python scripts (run_su2.py) to support:
+
+serial or MPI execution,
+
+ Added support for a user-defined wall temperature boundary condition in the Python wrapper, allowing custom temperature profiles via mathematical expressions over (x, y, z); e.g., 560.0 - 260.0*sin(x*pi/4)
+
+
+GUI users can now generate and run wrappers with a single click.
 
  ---
 
@@ -98,7 +103,7 @@ This cross-validation ensures that even when individual keys are valid, the **ov
 ###  4. Other Enhancements
 
 - Improved GUI error handling & backward compatibility.
-- Added visualization support while running wrapper-based simulations.
+- Implemented both GUI and command-line interfaces for the installer.
 - Wrote user-facing documentation, troubleshooting guides, and code comments for maintainability.
 
 ---
@@ -127,11 +132,10 @@ This cross-validation ensures that even when individual keys are valid, the **ov
 
 ---
 
-- Add support for **time-varying boundary conditions** in wrappers.
 - Expand cross-parameter validation logic to cover more solver types.
 - Extend GUI scripting tab to allow custom Python scripts with CLI args.
 - Improve visualization (multi-zone, 3D support).
-- Add installer support for HPC modules and conda environments.
+- Add installer support for HPC modules and conda environments within SU2GUI.
 
 ---
 
