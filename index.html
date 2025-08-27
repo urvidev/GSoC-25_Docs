@@ -68,15 +68,14 @@
       <section id="achievements" class="section">
         <h2>Achievements</h2>
 
-        <h3>1. Python Wrapper Integration (<a href="/su2gui/Python-Wrapper/">Docs</a>)</h3>
+        <h3>1. Python Wrapper Integration (<a href="SU2-Installer.md">Docs</a>)</h3>
         <ul>
           <li>Integrated SU2’s <code>pysu2</code> bindings directly into SU2GUI.</li>
           <li>Enabled exporting GUI setups as Python scripts (<code>run_su2.py</code>) to support serial/MPI execution, dynamic wall temperature expressions, and reproducibility.</li>
           <li>GUI users can now generate and run wrappers with a single click.</li>
         </ul>
-        <p class="note"><em>Impact: Users gain both GUI convenience and the flexibility of scripting.</em></p>
-
-        <h3>2. JSON-based Configuration Validation (<a href="/su2gui/Config-Validation/">Docs</a>)</h3>
+        
+        <h3>2. JSON-based Configuration Validation (<a href="Config-Validation.md">Docs</a>)</h3>
         <p>This was one of the core parts of the project. The validation system is <strong>layered in two phases</strong>:</p>
 
         <h4>Phase 1: Basic Schema Validation</h4>
@@ -94,16 +93,16 @@
           <li>If <code>MARKER_ISOTHERMAL</code> is used, then <code>MARKER_PYTHON_CUSTOM</code> should not be defined on the same boundary.</li>
         </ul>
         <p>This cross-validation ensures that even when individual keys are valid, the <strong>overall configuration is logically sound</strong>.</p>
-        <p class="note"><em>Impact: Users are guided toward correct setups without trial-and-error or runtime crashes.</em></p>
+        
 
-        <h3>3. Simplified Installer (<a href="/su2gui/SU2-Installer/">Docs</a>)</h3>
+        <h3>3. Simplified Installer (<a href="SU2-Installer.md">Docs</a>)</h3>
         <ul>
           <li>Developed an interactive Installation Wizard (GUI + CLI).</li>
           <li>Supported pre-compiled binaries for Windows, Linux, macOS.</li>
           <li>Automatic environment variable configuration (<code>SU2_HOME</code>, <code>SU2_RUN</code>, <code>PATH</code>, <code>PYTHONPATH</code>).</li>
           <li>Optional MPI builds and Docker fallback for complex systems.</li>
         </ul>
-        <p class="note"><em>Impact: Setup time reduced from hours of terminal work to a few guided clicks.</em></p>
+        
 
         <h3>4. Other Enhancements</h3>
         <ul>
@@ -123,9 +122,9 @@
         </ul>
         <h4>Documentation</h4>
         <ul>
-          <li><a href="/su2gui/Python-Wrapper/">Python Wrapper Guide</a></li>
-          <li><a href="/su2gui/Config-Validation/">Config Validation Guide</a></li>
-          <li><a href="/su2gui/SU2-Installer/">Installer Guide</a></li>
+          <li><a href="Python-Wrapper.md">Python Wrapper Guide</a></li>
+          <li><a href="Config-Validation.md">Config Validation Guide</a></li>
+          <li><a href="SU2-Installer.md">Installer Guide</a></li>
         </ul>
         <h4>Installer System</h4>
         <ul>

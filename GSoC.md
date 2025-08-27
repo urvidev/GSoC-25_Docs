@@ -38,7 +38,7 @@ These improvements make SU2GUI a more approachable, dependable, and productive i
 
 ---
 
-###  1. Python Wrapper Integration ([Docs](/su2gui/Python-Wrapper/))
+###  1. Python Wrapper Integration ([Docs](SU2-Installer.md))
 
 - Integrated SU2’s `pysu2` bindings directly into SU2GUI.
 - Enabled exporting GUI setups as Python scripts (`run_su2.py`) to support:
@@ -47,11 +47,9 @@ These improvements make SU2GUI a more approachable, dependable, and productive i
   - and reproducibility across environments.
 - GUI users can now generate and run wrappers with a single click.
 
- *Impact: Users gain both GUI convenience and the flexibility of scripting.*
+ ---
 
----
-
-###  2. JSON-based Configuration Validation ([Docs](/su2gui/Config-Validation/))
+###  2. JSON-based Configuration Validation ([Docs](Config-Validation.md))
 
 This was one of the core parts of the project.  
 The validation system is **layered in two phases**:
@@ -78,7 +76,7 @@ Once basic validity is ensured, a second layer checks **logical consistency** be
 
 This cross-validation ensures that even when individual keys are valid, the **overall configuration is also logically sound**.
 
->  This design mimics the logic that previously existed in C++ hard-coded validation, but now in a modular, extensible JSON-driven form — no recompilation needed.
+
 
 ####  Integration into GUI
 
@@ -86,20 +84,16 @@ This cross-validation ensures that even when individual keys are valid, the **ov
 - Displayed results inline with real-time feedback and guidance.
 - Users can re-validate after fixing errors until status shows ✅ “Valid”.
 
- *Impact: Users are guided toward correct setups without trial-and-error or runtime crashes.*
+ ---
 
----
-
-###  3. Simplified Installer ([Docs](/su2gui/SU2-Installer/))
+###  3. Simplified Installer ([Docs](SU2-Installer.md))
 
 - Developed an interactive Installation Wizard (GUI + CLI).
 - Supported pre-compiled binaries for Windows, Linux, macOS.
 - Automatic environment variable configuration (`SU2_HOME`, `SU2_RUN`, `PATH`, `PYTHONPATH`).
 - Optional MPI builds and Docker fallback for complex systems.
 
- *Impact: Setup time reduced from hours of terminal work to a few guided clicks.*
-
----
+ ---
 
 ###  4. Other Enhancements
 
@@ -119,9 +113,9 @@ This cross-validation ensures that even when individual keys are valid, the **ov
   - Installation wizard (GUI + CLI).
 
 -  **Documentation**
-  - [Python Wrapper Guide](/su2gui/Python-Wrapper/)
-  - [Config Validation Guide](/su2gui/Config-Validation/)
-  - [Installer Guide](/su2gui/SU2-Installer/)
+  - [Python Wrapper Guide](Python-Wrapper.md)
+  - [Config Validation Guide](Config-Validation.md)
+  - [Installer Guide](SU2-Installer.md)
 
 -  **Installer System**
   - Pre-compiled binaries + Docker image (SU2 v8.2.0 with OpenMPI, SWIG, Python wrapper).
