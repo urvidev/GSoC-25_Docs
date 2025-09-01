@@ -118,14 +118,18 @@ This cross-validation ensures that even when individual keys are valid, the **ov
   - [Config Validation Guide](_su2gui/Config-Validation.md)
   - [Installer Guide](_su2gui/SU2-Installer.md)
 - Pull Requests
+  - SU2GUI: https://github.com/su2code/su2gui/pull/1
+    - Initial integration of Python wrapper and config validation logic into SU2GUI, laying the foundation for automated workflows and error checking.
   - SU2GUI: https://github.com/su2code/su2gui/pull/2
     - Integrates Python wrapper export (`run_su2.py`) with position-based custom wall temperature.
     - Adds validation UX wiring in the GUI (schema + cross-parameter checks surfaced to users).
     - Improves installer flow with platform-aware extraction and environment setup.
+  - SU2GUI: https://github.com/su2code/su2gui/pull/3
+    - Enhanced GUI error handling, improved backward compatibility, and added support for both GUI and CLI installer interfaces, plus user-facing documentation and troubleshooting guides.
   - SU2 core: [link pending]
     - Related work to enable/cleanly expose wrapper hooks for custom wall temperatures.
-  - SU2 Docs: [link pending]
-    - Documentation updates for the GUI wrapper, validation, and installer pages.
+  - SU2 Docs: https://github.com/urvidev/su2code-docs.github.io
+    - SU2 documentation site with user guides and docs for the GUI wrapper, validation, and installer pages.
 
 ---
 
