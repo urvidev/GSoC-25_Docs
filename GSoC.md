@@ -87,7 +87,7 @@ This cross-validation ensures that even when individual keys are valid, the **ov
 
 - Added a “Validate Configuration” button inside SU2GUI.
 - Displayed results inline with real-time feedback and guidance.
-- Users can re-validate after fixing errors until status shows ✅ “Valid”.
+- Users can re-validate after fixing errors until status shows “Valid”.
 
  ---
 
