@@ -31,130 +31,124 @@
       <section id="project-details" class="section">
         <h2>Project Details</h2>
         <ul>
-          <li><strong>Contributor:</strong> <a href="https://github.com/urvidev" target="_blank" rel="noopener">Urvashi</a></li>
-          <li><strong>Organization:</strong> <a href="https://github.com/su2code" target="_blank" rel="noopener">Stichting SU2</a></li>
-          <li><strong>Project:</strong> <a href="https://summerofcode.withgoogle.com/programs/2025/projects/FDJkLtqS" target="_blank" rel="noopener">SU2 GUI: Python Wrapper Integration, Config Validation, and Simplified Installer</a></li>
-          <li><strong>Mentors:</strong> <a href="https://github.com/bigfooted" target="_blank" rel="noopener">Nijso Beishuizen</a>, <a href="https://github.com/Ujjawal179" target="_blank" rel="noopener">Ujjawal Agrawal</a></li>
-          <li><strong>Project Repository:</strong> <a href="https://github.com/urvidev/su2gui_" target="_blank" rel="noopener">https://github.com/urvidev/su2gui_</a></li>
+            <li><strong>Contributor:</strong> <a href="https://github.com/urvidev" target="_blank" rel="noopener">Urvashi</a></li>
+            <li><strong>Organization:</strong> <a href="https://github.com/su2code" target="_blank" rel="noopener">Stichting SU2</a></li>
+            <li><strong>Project:</strong> <a href="https://summerofcode.withgoogle.com/programs/2025/projects" target="_blank" rel="noopener">SU2 GUI: Python Wrapper Integration, Config Validation, and Simplified Installer</a></li>
+            <li><strong>Mentors:</strong> <a href="https://github.com/bigfooted" target="_blank" rel="noopener">Nijso Beishuizen</a>, <a href="https://github.com/Ujjawal179" target="_blank" rel="noopener">Ujjawal Agrawal</a></li>
+            <li><strong>Project Repository:</strong> <a href="https://github.com/urvidev/su2gui_" target="_blank" rel="noopener">https://github.com/urvidev/su2gui_</a></li>
         </ul>
       </section>
 
       <section id="abstract" class="section">
         <h2>Abstract</h2>
-        <p>
-          During GSoC 2025, My project focused on making <strong>SU2GUI more usable, reliable, and beginner-friendly</strong>.
-        </p>
-        <p>The project brought together three pillars:</p>
-        <ol>
-          <li><strong>Python wrapper integration</strong> — to automate and customize simulation workflows from inside the GUI.</li>
-          <li><strong>JSON-based configuration validation</strong> — to catch errors before runtime using schema logic.</li>
-          <li><strong>A simplified, cross-platform installer</strong> — to reduce setup friction and save hours of environment debugging.</li>
-        </ol>
-        <p>
-          This work helps users focus on <em>simulation</em> instead of <em>setup</em>, and improves SU2’s accessibility for both new and experienced users.
-        </p>
+          <p>
+            During GSoC 2025, my goal was to make SU2GUI more <strong>usable, reliable, and beginner-friendly</strong>.
+          </p>
+          <p>The project brought together three pillars:</p>
+          <ol>
+            <li><strong>Python wrapper integration</strong> — to automate and customize simulation workflows from inside the GUI.</li>
+            <li><strong>JSON-based configuration validation</strong> — to catch errors before runtime using schema logic.</li>
+            <li><strong>A simplified, cross-platform installer</strong> — to reduce setup friction and save hours of environment debugging.</li>
+          </ol>
+          <p>
+            This work helps users focus on <em>simulation</em> instead of <em>setup</em>, and improves SU2’s accessibility for both new and experienced users.
+          </p>
       </section>
 
       <section id="benefits" class="section">
         <h2>How can this help the SU2 Users?</h2>
-        <ul>
-          <li><strong>Lower entry barrier:</strong> One-click installer or pip install — no manual compilation.</li>
-          <li><strong>Early error detection:</strong> Real-time schema validation inside GUI.</li>
-          <li><strong>Reproducibility:</strong> Export GUI setups as runnable Python scripts.</li>
-          <li><strong>Guided workflow:</strong> From setup to solver execution, everything stays in the GUI.</li>
-        </ul>
+          <ul>
+            <li><strong>Lower entry barrier:</strong> One-click installer or pip install — no manual compilation.</li>
+            <li><strong>Early error detection:</strong> Real-time schema validation inside GUI.</li>
+            <li><strong>Reproducibility:</strong> Export GUI setups as runnable Python scripts.</li>
+            <li><strong>Guided workflow:</strong> From setup to solver execution, everything stays in the GUI.</li>
+          </ul>
       </section>
 
       <section id="achievements" class="section">
         <h2>Achievements</h2>
-
-        <h3>1. Python Wrapper Integration (<a href="Python-Wrapper.md">Docs</a>)</h3>
-        <ul>
-          <li>Integrated SU2’s pysu2 bindings directly into SU2GUI.</li>
-          <li>Enabled exporting GUI setups as Python scripts (<code>run_su2.py</code>) to support serial or MPI execution.</li>
-          <li>Added support for a user-defined wall temperature boundary condition in the Python wrapper, allowing custom temperature profiles via mathematical expressions over (x, y, z); e.g., <code>560.0 - 260.0*sin(x*pi/4)</code>.</li>
-          <li>Reproducibility across environments.</li>
-          <li>GUI users can now generate and run wrappers with a single click.</li>
-        </ul>
-        
-        <h3>2. JSON-based Configuration Validation (<a href="Config-Validation.md">Docs</a>)</h3>
-        <p>This was one of the core parts of the project. The validation system is <strong>layered in two phases</strong>:</p>
-
-        <h4>Phase 1: Basic Schema Validation</h4>
-        <ul>
-          <li><strong>KEY</strong> must be present in the official SU2 key list (defined in <code>JsonSchema.json</code>).</li>
-          <li><strong>VALUE</strong> must match the expected data type (boolean, integer, float, string, array).</li>
-          <li>Missing keys, extra keys, and wrong types are reported in a clear, human-readable format.</li>
-        </ul>
-        <p>Example errors caught: <code>MISSING: MARKER_OUTLET</code>, <code>TYPE ERROR: CFL_NUMBER expected float, got string</code></p>
-
-        <h4>Phase 2: Cross-Parameter Logic Validation</h4>
-        <ul>
-          <li>If <code>KIND_TURB_MODEL = SA</code>, then <code>REYNOLDS_NUMBER</code> must be defined.</li>
-          <li>If <code>KIND_TURB_MODEL = NONE</code>, then turbulence-related parameters must not be present.</li>
-          <li>If <code>MARKER_ISOTHERMAL</code> is used, then <code>MARKER_PYTHON_CUSTOM</code> should not be defined on the same boundary.</li>
-        </ul>
-        <p>This cross-validation ensures that even when individual keys are valid, the <strong>overall configuration is logically sound</strong>.</p>
-        
-
-        <h3>3. Simplified Installer (<a href="SU2-Installer.md">Docs</a>)</h3>
-        <ul>
-          <li>Developed an interactive Installation Wizard (GUI + CLI).</li>
-          <li>Supported pre-compiled binaries for Windows, Linux, macOS.</li>
-          <li>Automatic environment variable configuration (<code>SU2_HOME</code>, <code>SU2_RUN</code>, <code>PATH</code>, <code>PYTHONPATH</code>).</li>
-          <li>Optional MPI builds and Docker fallback for complex systems.</li>
-        </ul>
-        
-
-        <h3>4. Other Enhancements</h3>
-        <ul>
-          <li>Improved GUI error handling &amp; backward compatibility.</li>
-          <li>Implemented both GUI and command-line interfaces for the installer.</li>
-          <li>Wrote user-facing documentation, troubleshooting guides, and code comments for maintainability.</li>
-        </ul>
+          <h3>1. Python Wrapper Integration (<a href="Python-Wrapper.md">Docs</a>)</h3>
+          <ul>
+            <li>Integrated automated SU2’s python wrapper generation functionality into SU2GUI.</li>
+            <li>Enabled exporting GUI setups as Python scripts (<code>run_su2.py</code>) to support serial or MPI execution.</li>
+            <li>Added support for a user-defined wall temperature boundary condition in the Python wrapper, allowing custom temperature profiles via mathematical expressions over (x, y, z); e.g., <code>560.0 - 260.0*sin(x*pi/4)</code>.</li>
+            <li>GUI users can now generate and run wrappers with a single click.</li>
+          </ul>
+          <h3>2. JSON-based Configuration Validation (<a href="Config-Validation.md">Docs</a>)</h3>
+          <p>This was one of the core parts of the project. The validation system is <strong>layered in two phases</strong>:</p>
+          <h4>Phase 1: Basic Schema Validation</h4>
+          <ul>
+            <li><strong>KEY</strong> must be present in the official SU2 key list (defined in <code>JsonSchema.json</code>).</li>
+            <li><strong>VALUE</strong> must match the expected data type (boolean, integer, float, string, array).</li>
+            <li>Missing keys, extra keys, and wrong types are all reported in a clear, human-readable format.</li>
+          </ul>
+          <p>Example errors caught: <code>MISSING: MARKER_OUTLET</code>, <code>TYPE ERROR: CFL_NUMBER expected float, got string</code></p>
+          <h4>Phase 2: Cross-Parameter Logic Validation</h4>
+          <ul>
+            <li>If <code>KIND_TURB_MODEL = SA</code>, then <code>REYNOLDS_NUMBER</code> must be defined.</li>
+            <li>If <code>KIND_TURB_MODEL = NONE</code>, then turbulence-related parameters must not be present.</li>
+            <li>If <code>MARKER_ISOTHERMAL</code> is used, then <code>MARKER_PYTHON_CUSTOM</code> should not be defined on the same boundary.</li>
+          </ul>
+          <p>This cross-validation ensures that even when individual keys are valid, the <strong>overall configuration is also logically sound</strong>.</p>
+          <h4>Integration into GUI</h4>
+          <ul>
+            <li>Added a “Validate Configuration” button inside SU2GUI.</li>
+            <li>Displayed results inline with real-time feedback and guidance.</li>
+            <li>Users can re-validate after fixing errors until status shows <span style="color:green">&#x2705; Valid</span>.</li>
+          </ul>
+          <h3>3. Simplified Installer (<a href="SU2-Installer.md">Docs</a>)</h3>
+          <ul>
+            <li>Developed an interactive Installation Wizard (GUI + CLI).</li>
+            <li>Supported pre-compiled binaries for Windows, Linux, macOS.</li>
+            <li>Automatic environment variable configuration (<code>SU2_HOME</code>, <code>SU2_RUN</code>, <code>PATH</code>, <code>PYTHONPATH</code>).</li>
+            <li>Automated installation of required dependencies.</li>
+            <li>Reduced setup time by automating tedious steps like adding environment variables.</li>
+          </ul>
+          <h3>4. Other Enhancements</h3>
+          <ul>
+            <li>Improved GUI error handling &amp; backward compatibility.</li>
+            <li>Implemented both GUI and command-line interfaces for the installer.</li>
+            <li>Wrote user-facing documentation, troubleshooting guides, and code comments for maintainability.</li>
+          </ul>
       </section>
 
       <section id="deliverables" class="section">
         <h2>Deliverables</h2>
-        <h4>Code Contributions</h4>
-        <ul>
-          <li>Python wrapper integration (<code>run_su2.py</code>, dynamic temperature logic).</li>
-          <li>JSON schema validator (<code>core/config_validator.py</code>) with two-phase logic.</li>
-          <li>Installation wizard (GUI + CLI).</li>
-        </ul>
-        <h4>Documentation</h4>
-        <ul>
-          <li><a href="Python-Wrapper.md">Python Wrapper Guide</a></li>
-          <li><a href="Config-Validation.md">Config Validation Guide</a></li>
-          <li><a href="SU2-Installer.md">Installer Guide</a></li>
-        </ul>
-        <h4>Installer System</h4>
-        <ul>
-          <li>Pre-compiled binaries + Docker image (SU2 v8.2.0 with OpenMPI, SWIG, Python wrapper).</li>
-          <li>Diagnostic toolkit for validating installation &amp; bindings.</li>
-        </ul>
+          <h4>Documentation</h4>
+          <ul>
+            <li><a href="Python-Wrapper.md">Python Wrapper Guide</a></li>
+            <li><a href="Config-Validation.md">Config Validation Guide</a></li>
+            <li><a href="SU2-Installer.md">Installer Guide</a></li>
+          </ul>
+          <h4>Pull Requests</h4>
+          <ul>
+            <li>SU2GUI: <a href="https://github.com/su2code/su2gui/pull/2" target="_blank">PR #2</a> — Python wrapper export, validation UX, installer improvements.</li>
+            <li>SU2 core: <em>link pending</em> — Related work to enable/cleanly expose wrapper hooks for custom wall temperatures.</li>
+            <li>SU2 Docs: <em>link pending</em> — Documentation updates for the GUI wrapper, validation, and installer pages.</li>
+          </ul>
       </section>
 
       <section id="future-work" class="section">
         <h2>Future Work</h2>
-        <ul>
-          <!-- <li>Add support for <strong>time-varying boundary conditions</strong> in wrappers.</li> -->
-          <li>Expand cross-parameter validation logic to cover more solver types.</li>
-          <li>Extend GUI scripting tab to allow custom Python scripts with CLI args.</li>
-          <li>Improve visualization (multi-zone, 3D support).</li>
-          <li>Add installer support for HPC modules and conda environments within SU2GUI.</li>
-        </ul>
+          <ul>
+            <li>Expand cross-parameter validation logic to cover more solver types.</li>
+            <li>Extend GUI scripting tab to allow custom Python scripts with CLI args.</li>
+            <li>Improve visualization (multi-zone, 3D support).</li>
+            <li>Add installer support for HPC modules and conda environments within SU2GUI.</li>
+          </ul>
       </section>
 
       <section id="acknowledgements" class="section">
         <h2>Acknowledgements</h2>
-        <p>
-          I am deeply grateful to my mentors <strong>Nijso Beishuizen</strong> and <strong>Ujjawal Agrawal</strong> for their constant feedback, patience, and technical insight. Their guidance not only shaped the code, but also how I approached problems and structured solutions.
-        </p>
-        <p>
-          Thanks to the <strong>SU2 community</strong> for reviewing my PRs, testing features, and providing valuable feedback. Lastly, I am thankful to <strong>Google Summer of Code</strong> for giving me this opportunity to contribute to an open-source project that truly helps researchers, students, and engineers around the world.
-        </p>
-        <p>This project has been both a technical challenge and a personal milestone. I am excited to continue contributing and growing with the SU2 ecosystem.</p>
+          <p>
+            I am deeply grateful to my mentors <strong>Nijso Beishuizen</strong> and <strong>Ujjawal Agrawal</strong> for their constant feedback, patience, and technical insight.<br>
+            Their guidance not only shaped the code, but also how I approached problems and structured solutions.
+          </p>
+          <p>
+            Thanks to the <strong>SU2 community</strong> for reviewing my PRs, testing features, and providing valuable feedback.<br>
+            Lastly, I am thankful to <strong>Google Summer of Code</strong> for giving me this opportunity to contribute to an open-source project that truly helps researchers, students, and engineers around the world.
+          </p>
+          <p>This project has been both a technical challenge and a personal milestone. I am excited to continue contributing and growing with the SU2 ecosystem.</p>
       </section>
 
       <footer class="page-footer">
