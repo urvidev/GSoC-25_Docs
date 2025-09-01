@@ -12,7 +12,7 @@
 
 ## Abstract
 
-During GSoC 2025, my goal was to make SU2GUI more **usable, reliable, and beginner-friendly** — especially for students, researchers, and engineers who are not yet comfortable with command-line workflows.
+During GSoC 2025, my focus was on making **SU2GUI easier to use, more reliable, and accessible for beginners**
 
 The project brought together three pillars:
 1. **Python wrapper integration** — to automate and customize simulation workflows from inside the GUI.
@@ -41,7 +41,7 @@ These improvements make SU2GUI a more approachable, dependable, and productive i
 ###  1. Python Wrapper Integration ([Docs](Python-Wrapper.md))
 
 
-Integrated SU2’s pysu2 bindings directly into SU2GUI.
+Integrated automated SU2’s python wrapper generation functionality into SU2GUI.
 
 Enabled exporting GUI setups as Python scripts (run_su2.py) to support:
 
@@ -96,7 +96,8 @@ This cross-validation ensures that even when individual keys are valid, the **ov
 - Developed an interactive Installation Wizard (GUI + CLI).
 - Supported pre-compiled binaries for Windows, Linux, macOS.
 - Automatic environment variable configuration (`SU2_HOME`, `SU2_RUN`, `PATH`, `PYTHONPATH`).
-- Optional MPI builds and Docker fallback for complex systems.
+- Automated installation of required dependencies
+- Reduced setup time by automating tedious steps like adding environment variables.
 
  ---
 
@@ -112,19 +113,19 @@ This cross-validation ensures that even when individual keys are valid, the **ov
 
 ---
 
--  **Code Contributions**
-  - Python wrapper integration (`run_su2.py`, dynamic temperature logic).
-  - JSON schema validator (`core/config_validator.py`) with two-phase logic.
-  - Installation wizard (GUI + CLI).
-
--  **Documentation**
-  - [Python Wrapper Guide](Python-Wrapper.md)
-  - [Config Validation Guide](Config-Validation.md)
-  - [Installer Guide](SU2-Installer.md)
-
--  **Installer System**
-  - Pre-compiled binaries + Docker image (SU2 v8.2.0 with OpenMPI, SWIG, Python wrapper).
-  - Diagnostic toolkit for validating installation & bindings.
+- Documentation
+  - [Python Wrapper Guide](_su2gui/Python-Wrapper.md)
+  - [Config Validation Guide](_su2gui/Config-Validation.md)
+  - [Installer Guide](_su2gui/SU2-Installer.md)
+- Pull Requests
+  - SU2GUI: https://github.com/su2code/su2gui/pull/2
+    - Integrates Python wrapper export (`run_su2.py`) with position-based custom wall temperature.
+    - Adds validation UX wiring in the GUI (schema + cross-parameter checks surfaced to users).
+    - Improves installer flow with platform-aware extraction and environment setup.
+  - SU2 core: [link pending]
+    - Related work to enable/cleanly expose wrapper hooks for custom wall temperatures.
+  - SU2 Docs: [link pending]
+    - Documentation updates for the GUI wrapper, validation, and installer pages.
 
 ---
 
